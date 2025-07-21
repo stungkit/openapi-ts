@@ -1,5 +1,11 @@
 # @hey-api/openapi-ts
 
+## 0.79.2
+
+### Patch Changes
+
+- [#2041](https://github.com/hey-api/openapi-ts/pull/2041) [`2755be9`](https://github.com/hey-api/openapi-ts/commit/2755be939376227969d2b216f556666cef67f01a) Thanks [@alexvuka1](https://github.com/alexvuka1)! - fix(parser): respect `output.case` when generating operation id
+
 ## 0.79.1
 
 ### Patch Changes
