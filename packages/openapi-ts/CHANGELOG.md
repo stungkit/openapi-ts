@@ -1,5 +1,11 @@
 # @hey-api/openapi-ts
 
+## 0.80.2
+
+### Patch Changes
+
+- [#2382](https://github.com/hey-api/openapi-ts/pull/2382) [`3a23362`](https://github.com/hey-api/openapi-ts/commit/3a2336204fb06b8fa69faa24de976122ad44c16a) Thanks [@idbenami](https://github.com/idbenami)! - fix(client-axios): allow passing `AxiosInstance` into `axios` field
+
 ## 0.80.1
 
 ### Patch Changes
