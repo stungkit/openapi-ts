@@ -1,5 +1,11 @@
 # @hey-api/openapi-ts
 
+## 0.80.11
+
+### Patch Changes
+
+- [#2423](https://github.com/hey-api/openapi-ts/pull/2423) [`554e9a6`](https://github.com/hey-api/openapi-ts/commit/554e9a6b4513eff4785ef48a927c6fea7a8eb873) Thanks [@max-scopp](https://github.com/max-scopp)! - feat(plugin): add `@angular/common` plugin
+
 ## 0.80.10
 
 ### Patch Changes
