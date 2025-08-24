@@ -1,5 +1,13 @@
 # @hey-api/openapi-ts
 
+## 0.81.1
+
+### Patch Changes
+
+- [#2515](https://github.com/hey-api/openapi-ts/pull/2515) [`b81051e`](https://github.com/hey-api/openapi-ts/commit/b81051e27945e330c0a7c157aff49029bcd6dfda) Thanks [@malcolm-kee](https://github.com/malcolm-kee)! - fix(parser): correctly handle schema extending discriminated schema
+
+- [#2513](https://github.com/hey-api/openapi-ts/pull/2513) [`34fa59f`](https://github.com/hey-api/openapi-ts/commit/34fa59fe2f0e6b4ba6578f25a6e64f964c04155c) Thanks [@mrlubos](https://github.com/mrlubos)! - fix(client): move sse functions into their own namespace
+
 ## 0.81.0
 
 ### Minor Changes
