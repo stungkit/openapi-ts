@@ -6,11 +6,15 @@
 
 import pkg from '../packages/openapi-python/package.json' with { type: 'json' };
 
+const timestamp = process.env.HEY_API_SNAPSHOT_TIMESTAMP;
+if (!timestamp) {
+  throw new Error('HEY_API_SNAPSHOT_TIMESTAMP is not set');
+}
+
 const match = pkg.version.match(/^(\d+\.\d+\.\d+)/);
 if (!match) {
   throw new Error(`Cannot parse base version from "${pkg.version}"`);
 }
 const [, base] = match;
-const devN = Math.floor(Date.now() / 1000);
 
-process.stdout.write(`${base}.dev${devN}\n`);
+process.stdout.write(`${base}.dev${timestamp}\n`);

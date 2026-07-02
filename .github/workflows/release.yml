@@ -27,6 +27,7 @@ jobs:
     outputs:
       published: ${{ steps.changesets.outputs.published }}
       published-packages: ${{ steps.changesets.outputs.publishedPackages }}
+      snapshot-timestamp: ${{ steps.snapshot-timestamp.outputs.value }}
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
@@ -128,6 +129,10 @@ jobs:
           branch: ${{ env.CURRENT_BRANCH }}
           commit_message: 'chore: update lock file'
 
+      - name: Compute shared snapshot timestamp
+        id: snapshot-timestamp
+        run: echo "value=$(date -u +%Y%m%d%H%M%S)" >> "$GITHUB_OUTPUT"
+
   snapshot:
     name: Snapshot Release (npm)
     needs: release
@@ -153,13 +158,22 @@ jobs:
       - name: Build packages
         run: pnpm tb "@hey-api/**"
 
-      - name: Publish snapshot
+      - name: Publish to npm
         run: |
           pnpm changeset version --snapshot next
+          MATCHES_BEFORE=$(grep -rl -- "-next-[0-9]\{14\}" --include=package.json . | wc -l)
+          find . -name package.json -not -path '*/node_modules/*' \
+            -exec sed -i -E "s/(-next-)[0-9]{14}/\1${SHARED_TIMESTAMP}/" {} +
+          MATCHES_AFTER=$(grep -rl -- "-next-${SHARED_TIMESTAMP}" --include=package.json . | wc -l)
+          if [ "$MATCHES_AFTER" -eq 0 ]; then
+            echo "::error::Timestamp normalization matched 0 files — changesets' format may have changed. Aborting before publish."
+            exit 1
+          fi
           pnpm changeset publish --tag next
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
+          SHARED_TIMESTAMP: ${{ needs.release.outputs.snapshot-timestamp }}
 
   snapshot-pypi:
     name: Snapshot Release (PyPI)
@@ -233,6 +247,8 @@ jobs:
           VERSION=$(pnpm exec tsx scripts/snapshot-version-pypi.ts)
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "Publishing PyPI snapshot as $VERSION"
+        env:
+          HEY_API_SNAPSHOT_TIMESTAMP: ${{ needs.release.outputs.snapshot-timestamp }}
 
       - name: Build wheels
         if: steps.affected.outputs.affected == 'true'
