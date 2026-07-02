@@ -1,8 +1,15 @@
 #!/usr/bin/env node
 
-// Converts the npm snapshot version already written by
-// `pnpm changeset version --snapshot next` into a PEP 440-compliant
-// dev release.
+// Computes a PEP 440-compliant dev release version for PyPI snapshot
+// publishes. Combines the base major.minor.patch from the currently
+// committed package.json (the last stable release) with a timestamp
+// shared across the npm and PyPI snapshot jobs, so a given snapshot
+// can be correlated across both registries by its version string
+// (e.g. npm `0.0.0-next-20260702002834` <-> PyPI `0.5.2.dev20260702002834`).
+//
+// The timestamp is computed once in the `release` job and passed in
+// via HEY_API_SNAPSHOT_TIMESTAMP rather than generated here, since two
+// independent Date.now() calls in separate CI jobs would drift.
 
 import pkg from '../packages/openapi-python/package.json' with { type: 'json' };
 
