@@ -111,8 +111,8 @@ importers:
         specifier: 1.14.6
         version: 1.14.6
       '@pinia/colada':
-        specifier: 0.19.1
-        version: 0.19.1(pinia@3.0.3(typescript@6.0.3)(vue@3.5.25(typescript@6.0.3)))(vue@3.5.25(typescript@6.0.3))
+        specifier: 0.21.7
+        version: 0.21.7(pinia@3.0.3(typescript@6.0.3)(vue@3.5.25(typescript@6.0.3)))(vue@3.5.25(typescript@6.0.3))
       '@tanstack/angular-query-experimental':
         specifier: 5.90.25
         version: 5.90.25(@angular/common@21.2.17(@angular/core@21.2.17(@angular/compiler@21.2.17)(rxjs@7.8.2)(zone.js@0.16.2))(rxjs@7.8.2))(@angular/core@21.2.17(@angular/compiler@21.2.17)(rxjs@7.8.2)(zone.js@0.16.2))
@@ -740,8 +740,8 @@ importers:
   examples/openapi-ts-pinia-colada:
     dependencies:
       '@pinia/colada':
-        specifier: 0.17.5
-        version: 0.17.5(pinia@3.0.3(typescript@6.0.3)(vue@3.5.13(typescript@6.0.3)))(vue@3.5.13(typescript@6.0.3))
+        specifier: 0.21.7
+        version: 0.21.7(pinia@3.0.3(typescript@6.0.3)(vue@3.5.13(typescript@6.0.3)))(vue@3.5.13(typescript@6.0.3))
       pinia:
         specifier: 3.0.3
         version: 3.0.3(typescript@6.0.3)(vue@3.5.13(typescript@6.0.3))
@@ -1339,8 +1339,8 @@ importers:
         specifier: workspace:*
         version: link:../../openapi-ts
       '@pinia/colada':
-        specifier: 0.19.1
-        version: 0.19.1(pinia@3.0.3(typescript@6.0.3)(vue@3.5.25(typescript@6.0.3)))(vue@3.5.25(typescript@6.0.3))
+        specifier: 0.21.7
+        version: 0.21.7(pinia@3.0.3(typescript@6.0.3)(vue@3.5.25(typescript@6.0.3)))(vue@3.5.25(typescript@6.0.3))
       '@types/cross-spawn':
         specifier: 6.0.6
         version: 6.0.6
@@ -5045,14 +5045,8 @@ packages:
   '@pinia/colada-devtools@0.1.6':
     resolution: {integrity: sha512-wRW/GxP8SiahC5TRVulQe+5NuIQ7DGtgsO4Xsf9tP2HSTTRD8ac+7pn9vbKxovPdXrgAyAo9PWzk1b+y5MYEUQ==}
 
-  '@pinia/colada@0.17.5':
-    resolution: {integrity: sha512-Ym+3CwAm76NLUeKhAFtRM5hbDFaQtuJz/EEQ/jqgN+c7gNvYUWDpIuh8mp4diSEFTrlcisATs1kYmFgDGV1tLg==}
-    peerDependencies:
-      pinia: ^2.2.6 || ^3.0.0
-      vue: ^3.5.17
-
-  '@pinia/colada@0.19.1':
-    resolution: {integrity: sha512-n1+TKgvGHR1Umz6Nzy5MYmow8b3xVuaFlxR8A7q5yioi/5hGLME4Wh/6WT/9Z8BP+1a9lI7cvmniRQUbPOdNig==}
+  '@pinia/colada@0.21.7':
+    resolution: {integrity: sha512-b8dJgRSjh7o6NnPXuvMbqv6JhoD/m/CwdadKl5SQvygsbUveYCBoqtnWzPch8AEW/UK0I3rFoATE8WrfI2cgKA==}
     peerDependencies:
       pinia: ^2.2.6 || ^3.0.0
       vue: ^3.5.17
@@ -7216,12 +7210,6 @@ packages:
   '@vue/devtools-api@7.7.7':
     resolution: {integrity: sha512-lwOnNBH2e7x1fIIbVT7yF5D+YWhqELm55/4ZKf45R9T8r9dE2AIOy8HKjfqzGsoTHFbWbr337O4E0A0QADnjBg==}
 
-  '@vue/devtools-api@8.0.1':
-    resolution: {integrity: sha512-YBvjfpM7LEp5+b7ZDm4+mFrC+TgGjUmN8ff9lZcbHQ1MKhmftT/urCTZP0y1j26YQWr25l9TPaEbNLbILRiGoQ==}
-
-  '@vue/devtools-api@8.0.5':
-    resolution: {integrity: sha512-DgVcW8H/Nral7LgZEecYFFYXnAvGuN9C3L3DtWekAncFBedBczpNW8iHKExfaM559Zm8wQWrwtYZ9lXthEHtDw==}
-
   '@vue/devtools-core@7.6.8':
     resolution: {integrity: sha512-8X4roysTwzQ94o7IobjVcOd1aZF5iunikrMrHPI2uUdigZCi2kFTQc7ffYiFiTNaLElCpjOhCnM7bo7aK1yU7A==}
     peerDependencies:
@@ -7243,9 +7231,6 @@ packages:
   '@vue/devtools-kit@7.7.7':
     resolution: {integrity: sha512-wgoZtxcTta65cnZ1Q6MbAfePVFxfM+gq0saaeytoph7nEa7yMXoi6sCPy4ufO111B9msnw0VOWjPEFCXuAKRHA==}
 
-  '@vue/devtools-kit@8.0.1':
-    resolution: {integrity: sha512-7kiPhgTKNtNeXltEHnJJjIDlndlJP4P+UJvCw54uVHNDlI6JzwrSiRmW4cxKTug2wDbc/dkGaMnlZghcwV+aWA==}
-
   '@vue/devtools-kit@8.0.2':
     resolution: {integrity: sha512-yjZKdEmhJzQqbOh4KFBfTOQjDPMrjjBNCnHBvnTGJX+YLAqoUtY2J+cg7BE+EA8KUv8LprECq04ts75wCoIGWA==}
 
@@ -7257,9 +7242,6 @@ packages:
 
   '@vue/devtools-shared@7.7.7':
     resolution: {integrity: sha512-+udSj47aRl5aKb0memBvcUG9koarqnxNM5yjuREvqwK6T3ap4mn3Zqqc17QrBFTqSMjr3HK1cvStEZpMDpfdyw==}
-
-  '@vue/devtools-shared@8.0.1':
-    resolution: {integrity: sha512-PqtWqPPRpMwZ9FjTzyugb5KeV9kmg2C3hjxZHwjl0lijT4QIJDd0z6AWcnbM9w2nayjDymyTt0+sbdTv3pVeNg==}
 
   '@vue/devtools-shared@8.0.2':
     resolution: {integrity: sha512-mLU0QVdy5Lp40PMGSixDw/Kbd6v5dkQXltd2r+mdVQV7iUog2NlZuLxFZApFZ/mObUBDhoCpf0T3zF2FWWdeHw==}
@@ -17528,15 +17510,13 @@ snapshots:
 
   '@pinia/colada-devtools@0.1.6': {}
 
-  '@pinia/colada@0.17.5(pinia@3.0.3(typescript@6.0.3)(vue@3.5.13(typescript@6.0.3)))(vue@3.5.13(typescript@6.0.3))':
+  '@pinia/colada@0.21.7(pinia@3.0.3(typescript@6.0.3)(vue@3.5.13(typescript@6.0.3)))(vue@3.5.13(typescript@6.0.3))':
     dependencies:
-      '@vue/devtools-api': 8.0.1
       pinia: 3.0.3(typescript@6.0.3)(vue@3.5.13(typescript@6.0.3))
       vue: 3.5.13(typescript@6.0.3)
 
-  '@pinia/colada@0.19.1(pinia@3.0.3(typescript@6.0.3)(vue@3.5.25(typescript@6.0.3)))(vue@3.5.25(typescript@6.0.3))':
+  '@pinia/colada@0.21.7(pinia@3.0.3(typescript@6.0.3)(vue@3.5.25(typescript@6.0.3)))(vue@3.5.25(typescript@6.0.3))':
     dependencies:
-      '@vue/devtools-api': 8.0.5
       pinia: 3.0.3(typescript@6.0.3)(vue@3.5.25(typescript@6.0.3))
       vue: 3.5.25(typescript@6.0.3)
 
@@ -19772,14 +19752,6 @@ snapshots:
     dependencies:
       '@vue/devtools-kit': 7.7.7
 
-  '@vue/devtools-api@8.0.1':
-    dependencies:
-      '@vue/devtools-kit': 8.0.1
-
-  '@vue/devtools-api@8.0.5':
-    dependencies:
-      '@vue/devtools-kit': 8.0.5
-
   '@vue/devtools-core@7.6.8(vite@8.0.16(@types/node@24.13.2)(esbuild@0.27.3)(jiti@2.6.1)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.9.0))(vue@3.5.25(typescript@6.0.3))':
     dependencies:
       '@vue/devtools-kit': 7.7.7
@@ -19836,16 +19808,6 @@ snapshots:
       speakingurl: 14.0.1
       superjson: 2.2.2
 
-  '@vue/devtools-kit@8.0.1':
-    dependencies:
-      '@vue/devtools-shared': 8.0.1
-      birpc: 2.8.0
-      hookable: 5.5.3
-      mitt: 3.0.1
-      perfect-debounce: 1.0.0
-      speakingurl: 14.0.1
-      superjson: 2.2.2
-
   '@vue/devtools-kit@8.0.2':
     dependencies:
       '@vue/devtools-shared': 8.0.2
@@ -19877,10 +19839,6 @@ snapshots:
       superjson: 2.2.2
 
   '@vue/devtools-shared@7.7.7':
-    dependencies:
-      rfdc: 1.4.1
-
-  '@vue/devtools-shared@8.0.1':
     dependencies:
       rfdc: 1.4.1
 
