@@ -252,8 +252,7 @@ jobs:
 
       - name: Build wheels
         if: steps.affected.outputs.affected == 'true'
-        working-directory: packages/openapi-python/pypi
-        run: uv run python build-wheels.py
+        run: uv run python packages/openapi-python/pypi/build-wheels.py
         env:
           HEY_API_SNAPSHOT_VERSION: ${{ steps.version.outputs.version }}
 
@@ -321,8 +320,7 @@ jobs:
         run: pnpm tb:exe "@hey-api/openapi-python"
 
       - name: Build wheels
-        working-directory: packages/openapi-python/pypi
-        run: uv run python build-wheels.py
+        run: uv run python packages/openapi-python/pypi/build-wheels.py
 
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@cef221092ed1bacb1cc03d23a2d87d1d172e277b # v1.14.0
