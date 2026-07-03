@@ -1,9 +1,24 @@
 import type { UserConfig } from '@hey-api/openapi-ts';
 import { plugins } from '@hey-api/openapi-ts';
 
-export type PluginConfig = NonNullable<NonNullable<UserConfig['plugins']>[number]>;
+type PluginConfig = NonNullable<NonNullable<UserConfig['plugins']>[number]>;
 
-export const presets = {
+type PresetKey =
+  | 'angular'
+  | 'client'
+  | 'fake'
+  | 'full'
+  | 'msw'
+  | 'none'
+  | 'rpc'
+  | 'sdk'
+  | 'tanstack'
+  | 'transformed'
+  | 'types'
+  | 'validated';
+type Presets = Record<PresetKey, () => ReadonlyArray<PluginConfig>>;
+
+const presets: Presets = {
   angular: () => [
     plugins.angularCommon({
       httpRequests: 'flat',
@@ -96,11 +111,9 @@ export const presets = {
       metadata: true,
     }),
   ],
-} as const satisfies Record<string, () => ReadonlyArray<PluginConfig>>;
+};
 
-export type PresetKey = keyof typeof presets;
-
-export function getPreset(
+export function getPlugins(
   key: PresetKey = (process.env.PRESET as PresetKey) || 'sdk',
 ): ReadonlyArray<PluginConfig> {
   const preset = presets[key];

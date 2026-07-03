@@ -1,9 +1,12 @@
 import type { UserConfig } from '@hey-api/openapi-python';
 import { plugins } from '@hey-api/openapi-python';
 
-export type PluginConfig = NonNullable<NonNullable<UserConfig['plugins']>[number]>;
+type PluginConfig = NonNullable<NonNullable<UserConfig['plugins']>[number]>;
 
-export const presets = {
+type PresetKey = 'client' | 'none' | 'sdk' | 'validated';
+type Presets = Record<PresetKey, () => ReadonlyArray<PluginConfig>>;
+
+const presets: Presets = {
   client: () => [
     /** Just the client */
     plugins.clientHttpx(),
@@ -31,11 +34,9 @@ export const presets = {
       modelType: 'BaseModel',
     }),
   ],
-} as const satisfies Record<string, () => ReadonlyArray<PluginConfig>>;
+};
 
-export type PresetKey = keyof typeof presets;
-
-export function getPreset(
+export function getPlugins(
   key: PresetKey = (process.env.PRESET as PresetKey) || 'sdk',
 ): ReadonlyArray<PluginConfig> {
   const preset = presets[key];
