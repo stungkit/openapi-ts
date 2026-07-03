@@ -73,7 +73,7 @@
     "eslint-plugin-typescript-sort-keys": "3.3.0",
     "husky": "9.1.7",
     "lint-staged": "17.0.8",
-    "oxfmt": "0.56.0",
+    "oxfmt": "0.57.0",
     "oxlint": "1.71.0",
     "publint": "0.3.21",
     "tsdown": "0.22.3",
