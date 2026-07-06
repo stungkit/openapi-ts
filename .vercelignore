@@ -5,6 +5,5 @@
 !.nvmrc
 !package.json
 !pnpm-lock.yaml
-!tsconfig.base.json
-!tsconfig.json
+!pnpm-workspace.yaml
 !vercel.json
