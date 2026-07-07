@@ -27,10 +27,10 @@ for arg in "${raw_flags[@]:-}"; do
 done
 
 if [ "$dry" = true ]; then
-  exec pnpm turbo run build --filter="...${pkg}" --dry=json
+  exec pnpm turbo run build --filter="${pkg}..." --dry=json
 fi
 
-pnpm turbo run build --filter="...${pkg}"
+pnpm turbo run build --filter="${pkg}..."
 
 if [ "${#flags[@]}" -gt 0 ]; then
   exec pnpm vitest "$mode" "${flags[@]}" --project "$pkg"
