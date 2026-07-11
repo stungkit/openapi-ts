@@ -17,28 +17,11 @@ describe.each(versions)('OpenAPI %s', (version) => {
   const scenarios = [
     {
       config: createConfig({
-        input: 'rpc.yaml',
+        input: 'rpc-query-styles.yaml',
         output: 'default',
-        plugins: [plugins.orpc({ compatibilityVersion: '1' }), plugins.zod()],
+        plugins: [plugins.zod(), plugins.orpc({ compatibilityVersion: '2' })],
       }),
-      description: 'generate oRPC contracts with Zod schemas',
-    },
-    {
-      config: createConfig({
-        input: 'rpc.yaml',
-        output: 'custom-names',
-        plugins: [
-          plugins.valibot(),
-          plugins.orpc({
-            compatibilityVersion: '1',
-            contracts: {
-              containerName: 'rpcContract',
-              contractName: '{{name}}Rpc',
-            },
-          }),
-        ],
-      }),
-      description: 'generate oRPC contracts with custom names and Valibot schemas',
+      description: 'generate oRPC v2 contracts with query styles',
     },
   ];
 

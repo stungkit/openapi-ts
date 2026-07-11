@@ -7,7 +7,7 @@ import { getFilePaths } from '../../../utils';
 import { snapshotsDir, tmpDir } from './constants';
 import { createConfigFactory } from './utils';
 
-const versions = ['3.0.x'] as const;
+const versions = ['3.1.x'] as const;
 
 describe.each(versions)('OpenAPI %s', (version) => {
   const outputDir = path.join(tmpDir, version);
@@ -17,28 +17,25 @@ describe.each(versions)('OpenAPI %s', (version) => {
   const scenarios = [
     {
       config: createConfig({
-        input: 'rpc.yaml',
+        input: 'rpc-query-styles.yaml',
         output: 'default',
-        plugins: [plugins.orpc({ compatibilityVersion: '1' }), plugins.zod()],
+        plugins: [plugins.zod(), plugins.orpc({ compatibilityVersion: '2' })],
       }),
-      description: 'generate oRPC contracts with Zod schemas',
+      description: 'generate oRPC v2 contracts with query styles',
     },
     {
       config: createConfig({
-        input: 'rpc.yaml',
-        output: 'custom-names',
+        input: 'rpc-query-styles.yaml',
+        output: 'query-styles-disabled',
         plugins: [
-          plugins.valibot(),
+          plugins.zod(),
           plugins.orpc({
-            compatibilityVersion: '1',
-            contracts: {
-              containerName: 'rpcContract',
-              contractName: '{{name}}Rpc',
-            },
+            compatibilityVersion: '2',
+            inferQueryStyles: false,
           }),
         ],
       }),
-      description: 'generate oRPC contracts with custom names and Valibot schemas',
+      description: 'generate oRPC v2 contracts without query styles',
     },
   ];
 
